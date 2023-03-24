@@ -517,7 +517,7 @@ spec:
     - name: POSTGRES_PASSWORD
       value: chris1234
     - name: SWIFT_AUTH_URL
-      value: http://swift:8080/auth/v1.0
+      value: http://localhost:8080/auth/v1.0
     - name: SWIFT_USERNAME
       value: chris:chris1234
     - name: DATABASE_HOST
@@ -596,7 +596,7 @@ spec:
     - name: AUTH_LDAP
       value: "false"
     - name: CHRIS_STORE_URL
-      value: http://chrisstore.local:8010/api/v1/
+      value: http://localhost:8010/api/v1/
     - name: SWIFT_USERNAME
       value: chris:chris1234
     image: ghcr.io/fnndsc/cube:4.0.0.pre6
