@@ -1,12 +1,3 @@
-# Save the output of this file and use kubectl create -f to import
-# it into Kubernetes.
-#
-# Created with podman-4.2.0
-
-# NOTE: The namespace sharing for a pod has been modified by the user and is not the same as the
-# default settings for kubernetes. This can lead to unexpected behavior when running the generated
-# kube yaml in a kubernetes cluster.
----
 apiVersion: v1
 kind: Pod
 metadata:
@@ -136,9 +127,9 @@ spec:
     - name: POSTGRES_USER
       value: chris
     - name: CHRIS_STORE_URL
-      value: http://chrisstore.local:8010/api/v1/
+      value: http://localhost:8010/api/v1/
     - name: SWIFT_AUTH_URL
-      value: http://swift:8080/auth/v1.0
+      value: http://localhost:8080/auth/v1.0
     - name: DATABASE_HOST
       value: chris_db
     - name: STATIC_ROOT
@@ -226,7 +217,7 @@ spec:
     - name: PFCON_USER
       value: pfcon
     - name: COMPUTE_SERVICE_URL
-      value: http://pman:5010/api/v1/
+      value: http://localhost:5010/api/v1/
     image: ghcr.io/fnndsc/pfcon:5.0.0
     name: pfcon
     ports:
@@ -401,7 +392,7 @@ spec:
     - name: DJANGO_SETTINGS_MODULE
       value: config.settings.production
     - name: SWIFT_AUTH_URL
-      value: http://swift:8080/auth/v1.0
+      value: http://localhost:8080/auth/v1.0
     - name: DJANGO_DB_MIGRATE
       value: "off"
     - name: AUTH_LDAP
@@ -439,7 +430,7 @@ spec:
     - name: CELERY_BROKER_URL
       value: amqp://queue:5672
     - name: SWIFT_AUTH_URL
-      value: http://swift:8080/auth/v1.0
+      value: http://localhost:8080/auth/v1.0
     - name: DJANGO_USE_X_FORWARDED_HOST
       value: "false"
     - name: DJANGO_COLLECTSTATIC
@@ -467,7 +458,7 @@ spec:
     - name: DJANGO_SETTINGS_MODULE
       value: config.settings.production
     - name: CHRIS_STORE_URL
-      value: http://chrisstore.local:8010/api/v1/
+      value: http://localhost:8010/api/v1/
     - name: POSTGRES_DB
       value: chris
     - name: DJANGO_CORS_ALLOW_ALL_ORIGINS
@@ -536,7 +527,7 @@ spec:
     - name: POSTGRES_USER
       value: chris
     - name: CHRIS_STORE_URL
-      value: http://chrisstore.local:8010/api/v1/
+      value: http://localhost:8010/api/v1/
     - name: SWIFT_KEY
       value: testing
     - name: STATIC_ROOT
@@ -573,7 +564,7 @@ spec:
     - name: SWIFT_CONTAINER_NAME
       value: users
     - name: SWIFT_AUTH_URL
-      value: http://swift:8080/auth/v1.0
+      value: http://localhost:8080/auth/v1.0
     - name: DATABASE_HOST
       value: chris_db
     - name: DJANGO_USE_X_FORWARDED_HOST
