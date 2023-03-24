@@ -366,7 +366,7 @@ spec:
     - name: STATIC_ROOT
       value: /home/localuser/mod_wsgi-0.0.0.0:8000/htdocs/static/
     - name: CHRIS_STORE_URL
-      value: http://chrisstore.local:8010/api/v1/
+      value: http://localhost:8010/api/v1/
     - name: DATABASE_PORT
       value: "5432"
     - name: DATABASE_HOST
