@@ -5,7 +5,7 @@ metadata:
     io.kubernetes.cri-o.ContainerType/chris: container
     io.kubernetes.cri-o.ContainerType/chrisstore: container
     io.kubernetes.cri-o.ContainerType/minichris-podmanchrisdb1: container
-    io.kubernetes.cri-o.ContainerType/minichris-podmanchrisstoredb1: container
+    io.kubernetes.cri-o.ContainerType/minichris-podmanchrisstoredb: container
     io.kubernetes.cri-o.ContainerType/minichris-podmanorthanc1: container
     io.kubernetes.cri-o.ContainerType/minichris-podmanqueue1: container
     io.kubernetes.cri-o.ContainerType/minichris-podmanscheduler1: container
@@ -18,7 +18,7 @@ metadata:
     io.kubernetes.cri-o.SandboxID/chris: 0b8746a9b7f2930e018083a4ee9785b72e1237c59079cda7bc713ca61b8b02a
     io.kubernetes.cri-o.SandboxID/chrisstore: 0b8746a9b7f2930e018083a4ee9785b72e1237c59079cda7bc713ca61b8b02a
     io.kubernetes.cri-o.SandboxID/minichris-podmanchrisdb1: 0b8746a9b7f2930e018083a4ee9785b72e1237c59079cda7bc713ca61b8b02a
-    io.kubernetes.cri-o.SandboxID/minichris-podmanchrisstoredb1: 0b8746a9b7f2930e018083a4ee9785b72e1237c59079cda7bc713ca61b8b02a
+    io.kubernetes.cri-o.SandboxID/minichris-podmanchrisstoredb: 0b8746a9b7f2930e018083a4ee9785b72e1237c59079cda7bc713ca61b8b02a
     io.kubernetes.cri-o.SandboxID/minichris-podmanorthanc1: 0b8746a9b7f2930e018083a4ee9785b72e1237c59079cda7bc713ca61b8b02a
     io.kubernetes.cri-o.SandboxID/minichris-podmanqueue1: 0b8746a9b7f2930e018083a4ee9785b72e1237c59079cda7bc713ca61b8b02a
     io.kubernetes.cri-o.SandboxID/minichris-podmanscheduler1: 0b8746a9b7f2930e018083a4ee9785b72e1237c59079cda7bc713ca61b8b02a
@@ -31,7 +31,7 @@ metadata:
     io.kubernetes.cri-o.TTY/chris: "false"
     io.kubernetes.cri-o.TTY/chrisstore: "false"
     io.kubernetes.cri-o.TTY/minichris-podmanchrisdb1: "false"
-    io.kubernetes.cri-o.TTY/minichris-podmanchrisstoredb1: "false"
+    io.kubernetes.cri-o.TTY/minichris-podmanchrisstoredb: "false"
     io.kubernetes.cri-o.TTY/minichris-podmanorthanc1: "false"
     io.kubernetes.cri-o.TTY/minichris-podmanqueue1: "false"
     io.kubernetes.cri-o.TTY/minichris-podmanscheduler1: "false"
@@ -44,7 +44,7 @@ metadata:
     io.podman.annotations.autoremove/chris: "FALSE"
     io.podman.annotations.autoremove/chrisstore: "FALSE"
     io.podman.annotations.autoremove/minichris-podmanchrisdb1: "FALSE"
-    io.podman.annotations.autoremove/minichris-podmanchrisstoredb1: "FALSE"
+    io.podman.annotations.autoremove/minichris-podmanchrisstoredb: "FALSE"
     io.podman.annotations.autoremove/minichris-podmanorthanc1: "FALSE"
     io.podman.annotations.autoremove/minichris-podmanqueue1: "FALSE"
     io.podman.annotations.autoremove/minichris-podmanscheduler1: "FALSE"
@@ -57,7 +57,7 @@ metadata:
     io.podman.annotations.init/chris: "FALSE"
     io.podman.annotations.init/chrisstore: "FALSE"
     io.podman.annotations.init/minichris-podmanchrisdb1: "FALSE"
-    io.podman.annotations.init/minichris-podmanchrisstoredb1: "FALSE"
+    io.podman.annotations.init/minichris-podmanchrisstoredb: "FALSE"
     io.podman.annotations.init/minichris-podmanorthanc1: "FALSE"
     io.podman.annotations.init/minichris-podmanqueue1: "FALSE"
     io.podman.annotations.init/minichris-podmanscheduler1: "FALSE"
@@ -70,7 +70,7 @@ metadata:
     io.podman.annotations.privileged/chris: "FALSE"
     io.podman.annotations.privileged/chrisstore: "FALSE"
     io.podman.annotations.privileged/minichris-podmanchrisdb1: "FALSE"
-    io.podman.annotations.privileged/minichris-podmanchrisstoredb1: "FALSE"
+    io.podman.annotations.privileged/minichris-podmanchrisstoredb: "FALSE"
     io.podman.annotations.privileged/minichris-podmanorthanc1: "FALSE"
     io.podman.annotations.privileged/minichris-podmanqueue1: "FALSE"
     io.podman.annotations.privileged/minichris-podmanscheduler1: "FALSE"
@@ -83,7 +83,7 @@ metadata:
     io.podman.annotations.publish-all/chris: "FALSE"
     io.podman.annotations.publish-all/chrisstore: "FALSE"
     io.podman.annotations.publish-all/minichris-podmanchrisdb1: "FALSE"
-    io.podman.annotations.publish-all/minichris-podmanchrisstoredb1: "FALSE"
+    io.podman.annotations.publish-all/minichris-podmanchrisstoredb: "FALSE"
     io.podman.annotations.publish-all/minichris-podmanorthanc1: "FALSE"
     io.podman.annotations.publish-all/minichris-podmanqueue1: "FALSE"
     io.podman.annotations.publish-all/minichris-podmanscheduler1: "FALSE"
@@ -93,7 +93,6 @@ metadata:
     io.podman.annotations.publish-all/pfcon: "FALSE"
     io.podman.annotations.publish-all/pfdcm: "FALSE"
     io.podman.annotations.publish-all/pman: "FALSE"
-  creationTimestamp: "2023-03-24T18:33:50Z"
   labels:
     app: podminichris-podman
   name: pod_minichris-podman
@@ -143,7 +142,7 @@ spec:
     - name: AUTH_LDAP
       value: "false"
     image: docker.io/library/postgres:13
-    name: minichris-podmanchrisdb1
+    name: minichris-podmanchrisdb
     resources: {}
     securityContext:
       capabilities:
@@ -177,8 +176,10 @@ spec:
       value: chris
     - name: POSTGRES_PASSWORD
       value: chirs1234
+    - name: DATABASE_PORT
+      value: "5433"
     image: docker.io/library/postgres:13
-    name: minichris-podmanchrisstoredb1
+    name: minichris-podmanchrisstoredb
     resources: {}
     securityContext:
       capabilities:
@@ -306,13 +307,13 @@ spec:
     - name: POSTGRES_DB
       value: chris_store
     - name: DATABASE_HOST
-      value: chris_store_db
+      value: localhost:5433
     - name: DJANGO_SECRET_KEY
       value: secret
     - name: DJANGO_USE_X_FORWARDED_HOST
       value: "false"
     - name: DATABASE_PORT
-      value: "5432"
+      value: "5433"
     image: ghcr.io/fnndsc/chris_store:2.2.0
     name: chrisstore
     ports:
