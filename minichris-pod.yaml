@@ -142,7 +142,7 @@ spec:
       value: config.settings.production
     - name: AUTH_LDAP
       value: "false"
-    image: registry.redhat.io/rhel9/postgresql-13:1-112
+    image: docker.io/library/postgres:13
     name: minichris-podmanchrisdb1
     resources: {}
     securityContext:
@@ -177,7 +177,7 @@ spec:
       value: chris
     - name: POSTGRES_PASSWORD
       value: chirs1234
-    image: registry.redhat.io/rhel9/postgresql-13:1-112
+    image: docker.io/library/postgres:13
     name: minichris-podmanchrisstoredb1
     resources: {}
     securityContext:
