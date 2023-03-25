@@ -289,6 +289,8 @@ spec:
     env:
     - name: DJANGO_DB_MIGRATE
       value: "on"
+    - name: DJANGO_SECURE_PROXY_SSL_HEADER
+      value: " "
     - name: DJANGO_SETTINGS_MODULE
       value: config.settings.production
     - name: POSTGRES_PASSWORD
