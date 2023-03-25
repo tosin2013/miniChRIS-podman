@@ -290,7 +290,7 @@ spec:
     - name: DJANGO_DB_MIGRATE
       value: "on"
     - name: DJANGO_SECURE_PROXY_SSL_HEADER
-      value: "HTTP_X_FORWARDED_PROTO"
+      value: ""
     - name: DJANGO_SETTINGS_MODULE
       value: config.settings.production
     - name: POSTGRES_PASSWORD
@@ -363,6 +363,8 @@ spec:
     env:
     - name: DJANGO_ALLOWED_HOSTS
       value: '*'
+    - name: DJANGO_SECURE_PROXY_SSL_HEADER
+      value: " "
     - name: DJANGO_CORS_ALLOW_ALL_ORIGINS
       value: "true"
     - name: STATIC_ROOT
@@ -425,6 +427,8 @@ spec:
     env:
     - name: DJANGO_DB_MIGRATE
       value: "off"
+    - name: DJANGO_SECURE_PROXY_SSL_HEADER
+      value: ""
     - name: DATABASE_PORT
       value: "5432"
     - name: SWIFT_USERNAME
@@ -492,6 +496,8 @@ spec:
     env:
     - name: DJANGO_SETTINGS_MODULE
       value: config.settings.production
+    - name: DJANGO_SECURE_PROXY_SSL_HEADER
+      value: " "
     - name: DJANGO_DB_MIGRATE
       value: "on"
     - name: POSTGRES_DB
@@ -561,6 +567,8 @@ spec:
       value: /home/localuser/mod_wsgi-0.0.0.0:8000/htdocs/static/
     - name: DJANGO_COLLECTSTATIC
       value: "off"
+    - name: DJANGO_SECURE_PROXY_SSL_HEADER
+      value: " "
     - name: POSTGRES_DB
       value: chris
     - name: SWIFT_CONTAINER_NAME
