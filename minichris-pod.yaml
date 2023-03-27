@@ -177,7 +177,7 @@ spec:
     - name: POSTGRES_PASSWORD
       value: chirs1234
     - name: DATABASE_PORT
-      value: "5433"
+      value: "5432"
     image: docker.io/library/postgres:13
     name: minichris-podmanchrisstoredb
     resources: {}
@@ -375,7 +375,7 @@ spec:
     - name: DATABASE_PORT
       value: "5432"
     - name: DATABASE_HOST
-      value: localhost:5432
+      value: 0.0.0.0
     - name: CELERY_BROKER_URL
       value: amqp://queue:5672
     - name: SWIFT_USERNAME
@@ -447,7 +447,7 @@ spec:
     - name: POSTGRES_USER
       value: chris
     - name: DATABASE_HOST
-      value: localhost:5432
+      value: 0.0.0.0
     - name: CUBE_CELERY_POLL_INTERVAL
       value: "5.0"
     - name: SWIFT_CONTAINER_NAME
@@ -530,7 +530,7 @@ spec:
     - name: SWIFT_USERNAME
       value: chris:chris1234
     - name: DATABASE_HOST
-      value: localhost:5432
+      value: 0.0.0.0
     - name: CELERY_BROKER_URL
       value: amqp://queue:5672
     - name: POSTGRES_USER
@@ -577,7 +577,7 @@ spec:
     - name: SWIFT_AUTH_URL
       value: http://localhost:8080/auth/v1.0
     - name: DATABASE_HOST
-      value: localhost:5432
+      value: 0.0.0.0
     - name: DJANGO_USE_X_FORWARDED_HOST
       value: "false"
     - name: DJANGO_SETTINGS_MODULE
