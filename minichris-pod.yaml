@@ -76,6 +76,16 @@ spec:
     - mountPath: /var/lib/rabbitmq
       name: fb1a9ee29890cbcdb0ee0017641270ea24c19fcdcf1c971b13e65d87572f55cf-pvc
   - args:
+      - chris_ui
+    env:
+      - name: REACT_APP_CHRIS_UI_URL
+        value: http://localhost:8000/api/v1/
+      - name: REACT_APP_PFDCM_URL
+        value: http://localhost:4005/
+    image: ghcr.io/fnndsc/chris_ui:20230223.203-f0074403
+    name: chris_ui
+    resources: {}
+  - args:
     - postgres
     env:
       - name: POSTGRES_DB
