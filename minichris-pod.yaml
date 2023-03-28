@@ -97,7 +97,7 @@ spec:
       capabilities:
         drop:
           - CAP_MKNOD
-          - CAP_AUDIT_WRIT
+          - CAP_AUDIT_WRITE
     volumeMounts:
     - mountPath: /var/lib/postgresql/data
       name: e11f6df585fa33a8888c8b6a631640e7e1fcf1699114dbad105403fb0489bee8-pvc
