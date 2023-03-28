@@ -225,7 +225,7 @@ spec:
     - name: DJANGO_USE_X_FORWARDED_HOST
       value: "false"
     - name: DATABASE_PORT
-      value: "5432"
+      value: "5433"
     image: ghcr.io/fnndsc/chris_store:2.2.0
     name: chrisstore
     ports:
