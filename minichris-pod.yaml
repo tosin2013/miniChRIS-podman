@@ -85,7 +85,7 @@ spec:
     image: ghcr.io/fnndsc/chris_ui:20230223.203-f0074403
     name: chris_ui
     resources: {}
-    command: ["-p", "8020:3000" , "sirv", "--host", "--single"]
+    command: [8020:3000" , "sirv", "--host", "--single"]
   - args:
     - postgres
     env:
