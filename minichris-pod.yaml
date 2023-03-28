@@ -84,8 +84,12 @@ spec:
         value: http://localhost:4005/
     image: ghcr.io/fnndsc/chris_ui:20230223.203-f0074403
     name: chris_ui
+    ports:
+     - containerPort: 8020
+       hostPort: 3000
+       protocol: TCP
     resources: {}
-    command: ["8020:3000" , "sirv", "--host", "--single"]
+    command: ["sirv", "--host", "--single"]
   - args:
     - postgres
     env:
