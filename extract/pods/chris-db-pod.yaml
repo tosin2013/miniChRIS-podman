@@ -11,9 +11,9 @@ spec:
       image: docker.io/library/postgres:13
       resources: {}
       volumeMounts:
-        - mountPath: /var/lib/postgresql
-          name: chris-db
-restartPolicy: OnFailure
+        - name: chris-db
+          mountPath: /var/lib/postgresql
+      restartPolicy: OnFailure
 volumes:
   - name: chris-db
     hostPath:

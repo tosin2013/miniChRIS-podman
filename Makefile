@@ -9,3 +9,7 @@ run-playbook:
 .PHONY: reset-podman
 reset-podman:
 	sudo podman system reset
+
+
+
+	sudo podman play kube chris-db-pod.yaml --configmap=secrets.yml  --down
