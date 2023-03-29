@@ -7,4 +7,5 @@ jobs:
     - uses: actions/checkout@master
     - name: test
       uses: instrumenta/kubeval-action@master
-      files: development-pod.yaml
+      with:
+        files: development-pod.yaml
