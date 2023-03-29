@@ -12,6 +12,7 @@ spec:
       resources: {}
       volumeMounts:
         - mountPath: /var/lib/postgresql
+          name: chris-db
   restartPolicy: OnFailure
 volumes:
   - name: chris-db
