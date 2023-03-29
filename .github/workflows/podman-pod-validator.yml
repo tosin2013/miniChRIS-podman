@@ -3,8 +3,8 @@ name: Validate Podman Pod YAML
 
 on:
   push:
-    branches:
-      - main
+    branches:    
+      - '*' # testing
 
 jobs:
   build-and-push:
