@@ -20,6 +20,70 @@ spec:
         - name: chris-db
           mountPath: /var/lib/postgresql/data:Z
       restartPolicy: OnFailure
+    - name: worker
+      image: ghcr.io/fnndsc/cube:4.0.0.pre6
+      command: celery -A core worker -c 4 -l info -Q main1,main2
+      envFrom:
+        - configMapRef:
+            name: secrets
+      environment:
+        DJANGO_DB_MIGRATE: "off"
+        DJANGO_COLLECTSTATIC: "off"
+      depends_on:
+        - chris_db
+        - swift
+        - queue
+        - pfcon
+      networks:
+        - local
+      ports:
+        containerPort: 8000
+      restartPolicy: Never
+      resources:
+        limits:
+          memory: 1G
+        cpu: 200m
+    - name: worker_periodic
+      image: ghcr.io/fnndsc/cube:4.0.0.pre6
+      environment:
+        DJANGO_DB_MIGRATE: "off"
+        DJANGO_COLLECTSTATIC: "off"
+      command: celery -A core worker -c 2 -l info -Q periodic
+      env_file: secrets.env
+      depends_on:
+        - chris_db
+        - queue
+      networks:
+        - local
+      ports:
+        containerPort: 8000
+      restartPolicy: Never
+      resources:
+        limits:
+          memory: 1G
+        cpu: 200m
+      schedule:
+        - rate: */10m
+    - name: scheduler
+      image: ghcr.io/fnndsc/cube:4.0.0.pre6
+      command: celery -A core beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler
+      env_file: secrets.env
+      environment:
+        DJANGO_DB_MIGRATE: "off"
+        DJANGO_COLLECTSTATIC: "off"
+      depends_on:
+        - chris_db
+        - queue
+      networks:
+        - local
+      volumes:
+        - chris_db_data:/var/lib/postgresql
+    - name: chris_db
+      image: docker.io/library/postgres:13
+      env_file: secrets.env
+      restart: on-failure
+      networks:
+        - local
     - name: chris-ui
       image: ghcr.io/fnndsc/chris_ui:20230223.203-f0074403
       command: ["sirv", "--host", "--single"]
@@ -45,4 +109,7 @@ spec:
     - name: chris-db
       hostPath:
         path: /var/lib/containers/storage/volumes/chris-db
+    - name: chris_db_data
+      hostPath:
+        directory: /var/lib/containers/storage/volumes/chris_db_data
       #### INSERT NEW YAML BELOW THIS LINE FOR STORAGE ####
