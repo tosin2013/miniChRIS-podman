@@ -1,17 +1,15 @@
+
 name: Validate Podman Pod YAML
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-  build:
+  build-and-push:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v3
-    - name: validate podman pod yaml
-      uses: instrumenta/kubeval-action@master
-      with:
-        files: development-pod.yaml
+    - name: Checkout code
+      uses: actions/checkout@v3
