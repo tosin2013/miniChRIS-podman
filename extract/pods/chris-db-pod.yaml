@@ -14,7 +14,7 @@ spec:
         - name: chris-db
           mountPath: /var/lib/postgresql
       restartPolicy: OnFailure
-volumes:
+  volumes:
   - name: chris-db
     persistentVolumeClaim:
       claimName: chris-db
