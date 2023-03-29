@@ -16,5 +16,5 @@ spec:
       restartPolicy: OnFailure
 volumes:
   - name: chris-db
-    hostPath:
-      path: /var/lib/containers/storage/volumes/chris-db
+    persistentVolumeClaim:
+      claimName: chris-db
