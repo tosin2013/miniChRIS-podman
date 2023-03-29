@@ -4,11 +4,11 @@ metadata:
   name: chris-db
 spec:
   containers:
+    - name: chris-db
       envFrom:
         - configMapRef:
             name: secrets
       image: docker.io/library/postgres:13
-      name: chris-db
       resources: {}
       volumeMounts:
         - mountPath: /var/lib/postgresql
